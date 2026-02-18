@@ -40,13 +40,13 @@ function getAppDataPath() {
 
 // 保存数据到文件
 function saveData(data) {
-  const filePath = path.join(getAppDataPath(), 'data.json');
+  const filePath = path.join('data.json');
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
 // 读取数据
 function loadData() {
-  const filePath = path.join(getAppDataPath(), 'data.json');
+  const filePath = path.join('data.json');
   if (fs.existsSync(filePath)) {
     const data = fs.readFileSync(filePath);
     return JSON.parse(data);
