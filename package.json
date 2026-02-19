@@ -15,6 +15,7 @@
     "appId": "com.ItemCostCalculator.ItemCostCalculator",
     "productName": "ItemCostCalculator",
     "compression": "store",
+    "publish": null,
     "directories": {
       "output": "release"
     },
