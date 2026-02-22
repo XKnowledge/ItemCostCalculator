@@ -102,12 +102,23 @@
 </head>
 
 <body class="text-gray-800 h-screen flex flex-col overflow-hidden">
-    <!-- Header -->
-    <header class="bg-white shadow-sm z-10 flex-shrink-0">
+    <!-- Header (draggable area for frameless window) -->
+    <header class="bg-white shadow-sm z-10 flex-shrink-0" style="-webkit-app-region: drag;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-calculator text-indigo-600 text-2xl"></i>
                 <h1 class="text-xl font-bold text-gray-900">物品成本计算器</h1>
+            </div>
+            <div class="flex items-center gap-1" style="-webkit-app-region: no-drag;">
+                <button onclick="window.electronAPI.minimizeWindow()" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition" title="最小化">
+                    <i class="fa-solid fa-minus text-gray-600"></i>
+                </button>
+                <button onclick="window.electronAPI.maximizeWindow()" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition" title="最大化">
+                    <i class="fa-regular fa-square text-gray-600"></i>
+                </button>
+                <button onclick="window.electronAPI.closeWindow()" class="w-10 h-10 flex items-center justify-center hover:bg-red-500 hover:text-white rounded-lg transition text-gray-600" title="关闭">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
         </div>
     </header>

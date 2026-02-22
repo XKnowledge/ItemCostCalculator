@@ -8,6 +8,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 900,
     height: 700,
+    frame: false,
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -81,4 +82,21 @@ ipcMain.handle('delete-item', (event, id) => {
   data.items = data.items.filter(item => item.id !== id);
   saveData(data);
   return true;
+});
+
+// 窗口控制
+ipcMain.handle('minimize-window', () => {
+  mainWindow.minimize();
+});
+
+ipcMain.handle('maximize-window', () => {
+  if (mainWindow.isMaximized()) {
+    mainWindow.unmaximize();
+  } else {
+    mainWindow.maximize();
+  }
+});
+
+ipcMain.handle('close-window', () => {
+  mainWindow.close();
 });
